@@ -27,7 +27,8 @@ self.addEventListener('install', event => {
                 '/entrance-task-3/vendor/bem-components-dist-5.0.0/touch-phone/bem-components.dev.css',
                 '/entrance-task-3/vendor/bem-components-dist-5.0.0/touch-phone/bem-components.dev.js',
                 '/entrance-task-3/vendor/kv-keeper.js-1.0.4/kv-keeper.js',
-                '/entrance-task-3/vendor/kv-keeper.js-1.0.4/kv-keeper.typedef.js'
+                '/entrance-task-3/vendor/kv-keeper.js-1.0.4/kv-keeper.typedef.js',
+                'https://yastatic.net/jquery/3.1.0/jquery.min.js'
             ]);
         }));
 });
