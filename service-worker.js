@@ -16,6 +16,20 @@ self.addEventListener('install', event => {
         .then(() => console.log('[ServiceWorker] Installed!'));
 
     event.waitUntil(promise);
+    event.waitUntil(
+        caches.open(CACHE_VERSION).then(function(cache) {
+            return cache.addAll([
+                '/entrance-task-3/gifs.html',
+                '/entrance-task-3/assets/blocks.js',
+                '/entrance-task-3/assets/star.svg',
+                '/entrance-task-3/assets/templates.js',
+                '/entrance-task-3/assets/style.css',
+                '/entrance-task-3/vendor/bem-components-dist-5.0.0/touch-phone/bem-components.dev.css',
+                '/entrance-task-3/vendor/bem-components-dist-5.0.0/touch-phone/bem-components.dev.js',
+                '/entrance-task-3/vendor/kv-keeper.js-1.0.4/kv-keeper.js',
+                '/entrance-task-3/vendor/kv-keeper.js-1.0.4/kv-keeper.typedef.js'
+            ]);
+        }));
 });
 
 self.addEventListener('activate', event => {
@@ -36,13 +50,7 @@ self.addEventListener('fetch', event => {
     // Вопрос №3: для всех ли случаев подойдёт такое построение ключа?
     const cacheKey = url.origin + url.pathname;
 
-    let response;
-    if (needStoreForOffline(cacheKey)) {
-        response = caches.match(cacheKey)
-            .then(cacheResponse => cacheResponse || fetchAndPutToCache(cacheKey, event.request));
-    } else {
-        response = fetchWithFallbackToCache(event.request);
-    }
+    let response = fetchWithFallbackToCache(event.request);
 
     event.respondWith(response);
 });
