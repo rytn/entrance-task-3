@@ -127,7 +127,8 @@ function deleteObsoleteCaches() {
 function needStoreForOffline(cacheKey) {
     return cacheKey.includes('vendor/') ||
         cacheKey.includes('assets/') ||
-        cacheKey.endsWith('jquery.min.js');
+        cacheKey.endsWith('jquery.min.js') ||
+        cacheKey.includes('gifs.html');
 }
 
 // Скачать и добавить в кеш
