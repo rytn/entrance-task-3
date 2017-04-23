@@ -4,7 +4,7 @@
  * Сервис-воркер, обеспечивающий оффлайновую работу избранного
  */
 
-const CACHE_VERSION = '1.0.0-broken';
+const CACHE_VERSION = '1.0.1';
 
 importScripts('./vendor/kv-keeper.js-1.0.4/kv-keeper.js');
 
